@@ -45,6 +45,7 @@ var radar_data = [
     "items" : [
   {
     "name": "Akka (Scala)",
+	"description": "Sample description for Akka",
     "pc": {
       "r": 67,
       "t": 113

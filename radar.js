@@ -173,9 +173,12 @@ for (var i = 0; i < radar_data.length; i++) {
       .size(function(d) { return (d.blipSize !== undefined ? d.blipSize : 70); })
       .left(function(d) { return polar_to_raster(d.pc.r, d.pc.t)[0]; })
       .bottom(function(d) { return polar_to_raster(d.pc.r, d.pc.t)[1]; })                                
-      .title(function(d) { return d.name; })		 
+      //.title(function(d) { return d.name; })		 
+	  .text(function(d){return d.description !== undefined ? d.description : d.name;})
+	  .event("mouseover", pv.Behavior.tipsy({gravity: "n", fade: true, html: true}))
       .cursor(function(d) { return ( d.url !== undefined ? "pointer" : "auto" ); })                                                            
       .event("click", function(d) { if ( d.url !== undefined ){self.location =  d.url}}) 
+
       .angle(Math.PI)  // 180 degrees in radians
       .strokeStyle(radar_data[i].color)
       .fillStyle(radar_data[i].color)
